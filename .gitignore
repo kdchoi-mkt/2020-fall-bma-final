@@ -130,6 +130,11 @@ dmypy.json
 
 # Ignore .tab files
 *.tab
+*.csv
+*.tsv
+*.tfevents
+*.xlsx
+*.json
 
 # Ignore model pkl file
 model.pkl
