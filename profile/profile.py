@@ -1,4 +1,4 @@
-profile = pd.read_excel("train_profiles.xlsx").set_index("CUS_ID")
+import pandas as pd
 
 age = { 
     10 : 20,
@@ -13,7 +13,11 @@ def get_target(profile):
     """
     Return GROUP,GENDER,AGE_new
     """
-    profile["AGE_new"] = profile["AGE"].apply(lambda x: age[x])
-    return profile[['GENDER', 'AGE_new','GROUP']]
+    profile["AGE"] = profile["AGE"].apply(lambda x: age[x])
+    return profile[['GENDER', 'AGE', 'GROUP']]
 
-get_target(profile)
+
+profile = pd.read_excel("train_profiles.xlsx")\
+            .set_index("CUS_ID")
+
+get_target(profile).to_csv('profile_preprocess.csv')
