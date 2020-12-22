@@ -130,3 +130,8 @@ def _get_word_vector(model, word_list: list):
         except:
             pass
     return whole_word
+
+if __name__ == '__main__':
+    query_string = keyword_preprocess()
+    cross_sectional = aggregate_keyword_data(query_string)
+    cross_sectional.to_csv('./keyword_preprocess.csv')

@@ -138,3 +138,6 @@ def aggregate_and_get_group_by(df, target_column, group_columns, agg_func = 'mea
 
     return objection.set_index('CUS_ID')
     
+if __name__ == '__main__':
+    click_stream_data = click_stream_preprocess()
+    click_stream_data.to_csv('./clickstream_preprocess.csv')
