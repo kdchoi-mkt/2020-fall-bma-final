@@ -11,7 +11,7 @@ git checkout -b <branch name>
 ```
 를 통해서 새로 브랜치를 작성. 그 브랜치에서 작업을 완료하면,
 ```
-git pull <branch name> main
+git pull origin <branch name>
 ```
 으로 진행
 
