@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Ignore .tab files
+*.tab
+
+# Ignore model pkl file
+model.pkl
