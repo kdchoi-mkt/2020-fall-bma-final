@@ -136,5 +136,5 @@ dmypy.json
 *.xlsx
 *.json
 
-# Ignore model pkl file
-model.pkl
+# Ignore .pkl file
+*.pkl
