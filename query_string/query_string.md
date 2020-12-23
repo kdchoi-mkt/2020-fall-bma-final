@@ -7,13 +7,13 @@
 6. 각 유저별, label 별 기초 변수 통계 데이터를 구성함
 
 # Query String에서 논의한 점들
-## QRY_STR에서 어떻게 단어를 빼올 것인가.
-QRY_STR의 구성은 다음 중 하나이다.
+## QRY_STR에서 어떻게 단어를 선택할 것인가?
+QRY_STR의 구성은 다음 중 하나임
 + something
 + something&~~~~~~
 + anything&~~~~&query=something
 
-다음 세 가지 모두에서 something이 가장 의미있는, 실제로 유저가 검색했음직한 단어라고 간주하였다. 
+다음 세 가지 모두에서 something이 가장 의미있는, 실제로 유저가 검색했음직한 단어라고 간주함
 
 ## 단어 데이터를 어떻게 의미있게 만들 것인가?
 ### 일괄적으로 one-hot encoding을 하면 생기는 현상
@@ -39,4 +39,4 @@ QRY_STR의 구성은 다음 중 하나이다.
     + 서로 다른 검색 수
     + 단어 길이 평균
     + 단어 개수 평균
-2. 그 후, pivot table을 이용하여 사람만 index가 오고 나머지 레이블 별 통계량이 column으로 가게 데이터 셋을 구성.
+2. 그 후, pivot table을 이용하여 사람만 index가 오고 나머지 레이블 별 통계량이 column으로 가게 데이터 셋을 구성
