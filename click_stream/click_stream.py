@@ -97,7 +97,7 @@ def preprocess_time_column(data_frame: pd.DataFrame)-> pd.DataFrame:
     
     data_frame['TIME'] = data_frame['TIME_ID'].apply(lambda x: x.hour)
     data_frame['WEEKDAY_NUM'] = data_frame['TIME_ID'].apply(lambda x: x.weekday())
-    data_frame['WEEKDAY_TIME'] = data_frame['WEEKDAY_NUM'] * 100 + data['TIME']
+    data_frame['WEEKDAY_TIME'] = data_frame['WEEKDAY_NUM'] * 100 + data_frame['TIME']
     
     return data_frame
 
