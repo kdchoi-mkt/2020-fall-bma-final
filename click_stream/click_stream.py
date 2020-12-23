@@ -74,13 +74,18 @@ def preprocess_time_column(data_frame: pd.DataFrame)-> pd.DataFrame:
     """
     data_frame['TIME_ID'] = data_frame['TIME_ID'].astype(str).apply(lambda x: datetime.strptime(x, '%Y%m%d%H'))
     
-    data_frame["WEEKDAY"]= data_frame["TIME_ID"].dt\
+    data_frame["WEEKDAY"] = data_frame["TIME_ID"].dt\
                                                 .weekday\
                                                 .apply(lambda x: WEEKDAY_DICT[x])
     
     data_frame["MONTH"] = data_frame["TIME_ID"].dt\
                                                .month\
                                                .apply(lambda x: MONTH_DICT[x])
+    
+    
+    data_frame['TIME'] = data_frame['TIME_ID'].apply(lambda x: x.hour)
+    data_frame['WEEKDAY_NUM'] = data_frame['TIME_ID'].apply(lambda x: x.weekday())
+    data_frame['WEEKDAY_TIME'] = data_frame['WEEKDAY_NUM'] * 100 + data['TIME']
     
     return data_frame
 
@@ -137,7 +142,7 @@ def aggregate_and_get_group_by(df, target_column, group_columns, agg_func = 'mea
                          .rename(columns = {target_column: new_target_column})
 
     return objection.set_index('CUS_ID')
-    
+
 if __name__ == '__main__':
     click_stream_data = click_stream_preprocess()
     click_stream_data.to_csv('./clickstream_preprocess.csv')
