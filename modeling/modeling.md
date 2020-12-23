@@ -44,15 +44,22 @@
 
 여러가지 방안 중, 이번 분석에서는 normal sampling과 oversampling 기법 두 가지에 대해서 모델을 설정한 뒤 `log loss`가 가장 적은 모델을 채택하는 것으로 방향을 정함
 
-# Modeling with pycaret
-
-Auto ML에서 이번 조가 고려한 사항은 다음과 같음
+## Variable Selection Problem
 + Importance Variable Selection
     + 중요한 변수만 선택하여 모델의 계산 속도를 높이기 위함
 + Ignorance of Low Variable
     + 적은 변량을 가진 변수를 제거하여 overfitting 이슈를 막기 위함
 + Remove Multicollinearity
     + 다중공선성 문제로 인해 제대로 된 예측을 할 수 없는 이슈를 막기 위함
+
+# Modeling with pycaret
+
+pycaret 모듈에서 다음과 같은 변수 선택 기법을 이용하여 모델 비교 및 하이퍼 파라미터 튜닝을 진행
+
++ Importance Variable Selection
++ Ignorance of Low Variable
++ Remove Multicollinearity
+
 
 ## Normal Sampling: Random Forest
 
