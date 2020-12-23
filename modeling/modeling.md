@@ -51,8 +51,8 @@ Auto ML에서 이번 조가 고려한 사항은 다음과 같음
     + 중요한 변수만 선택하여 모델의 계산 속도를 높이기 위함
 + Ignorance of Low Variable
     + 적은 변량을 가진 변수를 제거하여 overfitting 이슈를 막기 위함
-+ Remove Mulitcollinearity
-    + 다중 공산성 문제로 인해 제대로 된 예측을 할 수 없는 이슈를 막기 위함
++ Remove Multicollinearity
+    + 다중공선성 문제로 인해 제대로 된 예측을 할 수 없는 이슈를 막기 위함
 
 ### Normal Sampling: Random Forest
 
