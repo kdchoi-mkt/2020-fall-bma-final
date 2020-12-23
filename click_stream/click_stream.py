@@ -34,6 +34,12 @@ def click_stream_preprocess(file_name: str = './train_clickstreams.tab') -> pd.D
     site_data_frame_list.append(
         aggregate_and_get_pivot(data_frame, 'SITE_CNT', ['CUS_ID', 'WEEKDAY'], agg_func = 'sum')
     )
+    site_data_frame_list.append(
+        aggregate_and_get_pivot(data_frame, 'SITE_CNT', ['CUS_ID', 'QTILE_10'], agg_func = 'mean')
+    )
+    site_data_frame_list.append(
+        aggregate_and_get_pivot(data_frame, 'SITE_CNT', ['CUS_ID', 'QTILE_10'], agg_func = 'sum')
+    )
     # 각 아이디별 체류시간 기반
     duration_data_frame_list = list()
     duration_data_frame_list.append(
@@ -53,6 +59,12 @@ def click_stream_preprocess(file_name: str = './train_clickstreams.tab') -> pd.D
     )
     duration_data_frame_list.append(
         aggregate_and_get_pivot(data_frame, 'ST_TIME', ['CUS_ID', 'WEEKDAY'], agg_func = 'sum')
+    )
+    duration_data_frame_list.append(
+        aggregate_and_get_pivot(data_frame, 'ST_TIME', ['CUS_ID', 'QTILE_10'], agg_func = 'mean')
+    )
+    duration_data_frame_list.append(
+        aggregate_and_get_pivot(data_frame, 'ST_TIME', ['CUS_ID', 'QTILE_10'], agg_func = 'sum')
     )
     total_data_frame = pd.DataFrame()
     
