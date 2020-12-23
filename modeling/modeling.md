@@ -60,22 +60,23 @@ Auto ML에서 이번 조가 고려한 사항은 다음과 같음
 + Ensemble method 중 하나로, N개의 decision tree로 구성됨
 + Input을 각 decision tree가 받아 도출한 값을 취함하여, 과반수가 넘는 값으로 output을 도출하는 기법
 
-각 비율을 균일하게 맞추지 않고 현재 데이터 그대로 모델을 작성했을 경우에는 `Random Forest` 기법이 가장 퍼포먼스가 좋음 (`log loss`: 1.63)
+각 비율을 균일하게 맞추지 않고 현재 데이터 그대로 모델을 작성했을 경우에는 `Random Forest` 기법이 가장 퍼포먼스가 좋음 (`log loss`: 1.56)
 
 그러나, `log loss` 기준 튜닝을 시도하였을 때 더 높아지는 (성능이 낮아지는) 현상이 있었기에, Random Forest를 사용한다면 튜닝 전의 모델이 채택될 것으로 예상됨
 
-### Oversampling: Gradient Boosting Classifier
+### Oversampling: CatBoost
 
-+ Gradient Boosting Classifier
++ CatBoost 
 + Ensemble method 중 하나로, 약한 분류기부터 시작하여 점차 성능을 높이는 기법
-+ GBC에 대한 Loss function의 gradient를 이용하여 계산하기에, Gradient Boosting라 부름
++ CatBoost에 대한 Loss function의 gradient를 이용하여 계산함
++ 특히, category variable을 가지고 있는 경우에 사용하기 용이함
 
-각 비율을 균일하게 맞추고 모델을 구성한 경우에는 `Gradient Boosting Classifier` 기업이 가장 퍼포먼스가 좋은 (`log loss`: 1.67)
+각 비율을 균일하게 맞추고 모델을 구성한 경우에는 `CatBoost` 기법이 가장 퍼포먼스가 좋음 (`log loss`: 1.59)
 
-또한, 위와 마찬가지로 튜닝을 시도하였을 때 성능이 더 높아졌기에 (튜닝 후 `log loss`: 1.57), Gradient Boosting Classifier를 사용한다면 튜닝 후의 모델이 채택될 것으로 예상됨
+또한, 위와 마찬가지로 튜닝을 시도하였을 때 성능이 더 낮아지는 현상이 있었기에, CatBoost를 사용한다면 튜닝 후의 모델이 채택될 것으로 예상됨
 
 ### Result
 
-각 비율을 균일하게 맞추는 경우가 `log loss`가 낮았기에, `Gradient Boosting Classifier` 기법을 이용하여 prediction을 실시함. 
+각 비율을 균일하게 맞추지 않는 경우가 `log loss`가 낮았기에, `Random Forest` 기법을 이용하여 prediction을 실시함. 
 
 그러나, SMOTE 등의 oversampling을 사용하면 각 군에 대해 확률이 과대평가, 또는 과소평가 되기 때문에 더 이상 결과 값이 확률의 의미를 가지지는 않으므로 `log loss`가 항상 맞는 지표는 아님에 주의해야함
