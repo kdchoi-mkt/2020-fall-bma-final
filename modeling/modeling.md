@@ -44,7 +44,7 @@
 
 여러가지 방안 중, 이번 분석에서는 normal sampling과 oversampling 기법 두 가지에 대해서 모델을 설정한 뒤 `log loss`가 가장 적은 모델을 채택하는 것으로 방향을 정함
 
-## Modeling with pycaret
+# Modeling with pycaret
 
 Auto ML에서 이번 조가 고려한 사항은 다음과 같음
 + Importance Variable Selection
@@ -54,7 +54,7 @@ Auto ML에서 이번 조가 고려한 사항은 다음과 같음
 + Remove Multicollinearity
     + 다중공선성 문제로 인해 제대로 된 예측을 할 수 없는 이슈를 막기 위함
 
-### Normal Sampling: Random Forest
+## Normal Sampling: Random Forest
 
 + Random Forest
 + Ensemble method 중 하나로, N개의 decision tree로 구성됨
@@ -64,7 +64,7 @@ Auto ML에서 이번 조가 고려한 사항은 다음과 같음
 
 그러나, `log loss` 기준 튜닝을 시도하였을 때 더 높아지는 (성능이 낮아지는) 현상이 있었기에, Random Forest를 사용한다면 튜닝 전의 모델이 채택될 것으로 예상됨
 
-### Oversampling: CatBoost
+## Oversampling: CatBoost
 
 + CatBoost 
 + Ensemble method 중 하나로, 약한 분류기부터 시작하여 점차 성능을 높이는 기법
@@ -75,7 +75,7 @@ Auto ML에서 이번 조가 고려한 사항은 다음과 같음
 
 또한, 위와 마찬가지로 튜닝을 시도하였을 때 성능이 더 낮아지는 현상이 있었기에, CatBoost를 사용한다면 튜닝 후의 모델이 채택될 것으로 예상됨
 
-### Result
+## Result
 
 각 비율을 균일하게 맞추지 않는 경우가 `log loss`가 낮았기에, `Random Forest` 기법을 이용하여 prediction을 실시함. 
 
